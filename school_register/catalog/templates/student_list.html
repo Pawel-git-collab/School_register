@@ -1,0 +1,16 @@
+{% block content %}
+  <h1>Lista studentów</h1>
+  {% if student_list %}
+  <ul>
+    {% for student in student_list %}
+      <li>
+        <a href="{{ student.get_absolute_url }}">{{student.first_name}} {{student.last_name}} </a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Brak studentów</p>
+  {% endif %}
+<br>
+    <a href="{% url 'student_create'  %}"> [Dodaj Studenta] </a>
+{% endblock %}

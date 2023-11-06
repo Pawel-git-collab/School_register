@@ -1,0 +1,12 @@
+{% block content %}
+
+<h1>Usuwanie Studenta</h1>
+
+<p>Jesteś pewien/pewna że chcesz usunąć studenta: {{ student.first_name}} {{ student.last_name }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Tak, usuń.">
+</form>
+
+{% endblock %}

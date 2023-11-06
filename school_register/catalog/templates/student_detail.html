@@ -1,0 +1,21 @@
+{% block content %}
+
+<p><strong>Imię studenta:</strong> {{ student.first_name }}</p>
+<p><strong>Nazwisko studenta:</strong> {{ student.last_name }}</p>
+<p><strong>Kolokwium:</strong> {{ student.kolokwium }}</p>
+<p><strong>Aktywność:</strong> {{ student.aktywnosc }}</p>
+<p><strong>Egzamin końcowy:</strong> {{ student.egzamin_koncowy }}</p>
+<p><strong>Średnia liczba punktów:</strong> {{ student.avgg }}</p>
+{% if student.mark == 'mark_EUR' %}
+<p><strong>Ocena końcowa:</strong> {{ student.mark_EUR }}</p>
+{% elif student.mark == 'mark_US' %}
+<p><strong>Ocena końcowa:</strong> {{ student.mark_US }}</p>
+{% endif %}
+<br>
+<p><strong><a href="{% url 'student_create'  %}"> [Dodaj Studenta] </a></strong></p>
+    <a href="{% url 'student_update' student.pk %}">[Edytuj Studenta] </a> <a href="{% url 'student_delete' student.pk %}" style="color:#FF0000;">[Usuń Studenta]</a>
+<br>
+<p><strong><a href="{% url 'student'  %}">[Lista Studentów] </a></strong></p>
+  <div style="margin-left:20px;margin-top:20px">
+  </div>
+{% endblock %}
